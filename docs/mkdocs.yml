@@ -2,9 +2,33 @@ site_name: IaC para Kubernetes
 
 theme:
   name: material
+
+  palette: 
+    # Palette toggle for light mode
+    - scheme: default
+      toggle:
+        icon: material/weather-sunny
+        name: Mudar para modo escuro
+
+    # Palette toggle for dark mode
+    - scheme: slate
+      primary: deep purple
+      toggle:
+        icon: material/weather-night 
+        name: Mudar para modo claro
+
   features:
+    - content.code.select
     - content.tabs.link
+    - content.code.copy
 
 markdown_extensions: 
   - pymdownx.tabbed:
       alternate_style: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
