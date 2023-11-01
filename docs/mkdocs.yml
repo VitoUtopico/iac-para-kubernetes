@@ -1,0 +1,10 @@
+site_name: My Docs
+
+theme:
+  name: material
+  features:
+    - content.tabs.link
+
+markdown_extensions: 
+  - pymdownx.tabbed:
+      alternate_style: true
