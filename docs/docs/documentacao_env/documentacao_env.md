@@ -34,3 +34,14 @@ mkdocs gh-deploy
 
 ~~~
 
+---
+
+## Referências
+
+Poetry:
+
+[Gerenciando pacotes e ambientes com Poetry](https://www.youtube.com/watch?v=ZOSWdktsKf0&ab_channel=EduardoMendes)
+
+MkDocs:
+
+[Documentado projetos com MkDocs](https://www.youtube.com/watch?v=GW6nAJ1NHUQ&ab_channel=EduardoMendes)
