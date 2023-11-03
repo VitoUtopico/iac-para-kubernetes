@@ -1,0 +1,15 @@
+# Raspberry
+all:
+  vars:
+    ansible_ssh_user: kluster
+  children:
+    kubernetes:
+      children:
+        masters:
+          hosts:
+            192.168.2.120:
+        nodes:
+          hosts:
+            192.168.2.121:
+            192.168.2.122:
+            192.168.2.123:
