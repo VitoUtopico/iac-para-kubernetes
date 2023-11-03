@@ -160,3 +160,4 @@ cython_debug/
 #.idea/
 
 ssh_keys
+docs/site
