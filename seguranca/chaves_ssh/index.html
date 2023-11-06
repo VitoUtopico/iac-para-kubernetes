@@ -259,7 +259,7 @@
             
   
   <span class="md-ellipsis">
-    Documentacao env
+    Ansible
   </span>
   
 
@@ -268,6 +268,69 @@
         
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Ansible
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ansible/ansible/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ansible
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Documentacao env
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             Documentacao env
           </label>
@@ -317,10 +380,10 @@
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -331,8 +394,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_3">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             Seguranca
           </label>
@@ -480,9 +543,8 @@
 <p>Este processo gera duas chaves, uma privada, que deve ser mantida na máquina onde se desenvolve, e uma pública que deve ser alocada nas máquinas remotas.
 No caso de máquinas locais, pode-se enviar a chave pública para cada máquina. Máquinas geradas em nuvem, faremos o processo mais automatizado, a chave será enserida no host durante sua criação via Terraform.</p>
 <div class="language-sh highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>ssh-keygen<span class="w"> </span>-f<span class="w"> </span>rasp_key<span class="w"> </span><span class="c1"># -f especifica o nome do arquivo, que por padrão é id_rsa</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>ssh-copy-id<span class="w"> </span>rasp_key<span class="w"> </span>kluster@192.168.2.120<span class="w"> </span><span class="c1"># deve-se especificar o nome da chave e o host pra onde se quer enviá-la</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>ssh-agent<span class="w"> </span>bash
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>ssh-add<span class="w"> </span>rasp_key.pem<span class="w"> </span><span class="c1"># adicionando a chave rasp_key a um agent ssh para não ser necessário passar o path da chave como argumento para o acesso à máquina remota</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>ssh-copy-id<span class="w"> </span>-i<span class="w"> </span>rasp_key.pub<span class="w"> </span>kluster@192.168.2.120<span class="w"> </span><span class="c1"># deve-se especificar o nome da chave e o host pra onde se quer enviá-la</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>ssh-add<span class="w"> </span>rasp_key<span class="w"> </span><span class="c1"># adicionando a chave rasp_key a um agent ssh para não ser necessário passar o path da chave como argumento para o acesso à máquina remota</span>
 </span></code></pre></div>
 <h2 id="referencias">Referências</h2>
 <p>Chaves ssh:</p>
