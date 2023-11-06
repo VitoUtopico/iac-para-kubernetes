@@ -10,9 +10,8 @@ No caso de máquinas locais, pode-se enviar a chave pública para cada máquina.
 ~~~sh
 
 ssh-keygen -f rasp_key # -f especifica o nome do arquivo, que por padrão é id_rsa
-ssh-copy-id rasp_key kluster@192.168.2.120 # deve-se especificar o nome da chave e o host pra onde se quer enviá-la
-ssh-agent bash
-ssh-add rasp_key.pem # adicionando a chave rasp_key a um agent ssh para não ser necessário passar o path da chave como argumento para o acesso à máquina remota
+ssh-copy-id -i rasp_key.pub kluster@192.168.2.120 # deve-se especificar o nome da chave e o host pra onde se quer enviá-la
+ssh-add rasp_key # adicionando a chave rasp_key a um agent ssh para não ser necessário passar o path da chave como argumento para o acesso à máquina remota
 
 ~~~
 
