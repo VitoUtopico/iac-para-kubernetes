@@ -1,0 +1,42 @@
+---
+- name: Update apt
+  apt: 
+    upgrade: "dist"
+    update_cache: true
+    force_apt_get: true
+    state: "latest"
+    force: true
+
+- name: Instalando pacotes comuns
+  apt:
+    state: present
+    name: "{{ packages }}"
+  
+  vars:
+    packages:
+    - curl
+    - wget
+    - apt-transport-https
+    - ca-certificates
+    - gnupg
+    - lsb-release
+    - python3.10
+
+- name: modprobe overlay
+  modprobe:
+    name: overlay
+    state: present
+
+- name: modprobe br_netfilter
+  modprobe:
+    name: br_netfilter
+    state: present
+
+- name: Inserindo template k8s.conf
+  template:
+    src: k8s.conf
+    dest: /etc/sysctl.d/k8s.conf
+    mode: 0644
+
+- name: "sysctl"
+  shell: "sysctl --system"

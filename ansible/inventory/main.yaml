@@ -5,7 +5,7 @@ all:
   children:
     kubernetes:
       children:
-        masters:
+        control_plane:
           hosts:
             192.168.2.120:
         nodes:

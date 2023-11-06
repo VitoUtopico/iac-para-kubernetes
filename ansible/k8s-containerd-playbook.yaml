@@ -1,0 +1,8 @@
+- hosts: kubernetes
+  gather_facts: false
+  remote_user: kluster
+  become: yes
+  become_user: root
+  roles:
+  - { role: commons }
+  - { role: containerd }
