@@ -376,6 +376,33 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#teste" class="md-nav__link">
+    Teste
+  </a>
+  
+    <nav class="md-nav" aria-label="Teste">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#inventory_1" class="md-nav__link">
+    Inventory
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#playbooks_1" class="md-nav__link">
+    Playbooks
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -592,6 +619,33 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#teste" class="md-nav__link">
+    Teste
+  </a>
+  
+    <nav class="md-nav" aria-label="Teste">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#inventory_1" class="md-nav__link">
+    Inventory
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#playbooks_1" class="md-nav__link">
+    Playbooks
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -634,10 +688,24 @@
 <ul>
 <li>Baixa as chaves e adiciona os repositórios do K8S</li>
 <li>Instala o Kubelet, Kubeadm e Kubectl</li>
-<li></li>
 </ul>
 <h2 id="playbooks">Playbooks</h2>
 <p>Associa de forma ordenada as tasks que devem ser executadas com cada grupo de hosts.</p>
+<h2 id="teste">Teste</h2>
+<p>Tentando usar um mesmo projeto para deployar tanto em nuvem quanto em máquinas locais.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Ainda não sei a melhor forma de se fazer isso, seguindo boas práticas. Mas essa foi a forma que consegui fazer. Pretendo, o mais breve, descobrir a forma certa de se fazer isso.</p>
+</div>
+<h3 id="inventory_1">Inventory</h3>
+<p>Pasta inventory dividida em dois arquivos:</p>
+<ul>
+<li>rasp.yaml: referência às máquinas locais (Raspberries Pi)</li>
+<li>cloud.yaml: referência a máquinas que serão geradas na AWS</li>
+</ul>
+<h3 id="playbooks_1">Playbooks</h3>
+<p>Na pasta playbooks existem duas pastas, cloud e rasp, cada uma contendo um arquivo de playbook e um ansible.cfg.</p>
+<p>Cada arquivo ansible.cfg faz referência a um inventory e cada playbook configura o nome de usuário linux de acordo com o conjunto de máquinas a que se refere.</p>
 
 
 
