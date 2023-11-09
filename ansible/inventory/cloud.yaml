@@ -1,0 +1,13 @@
+# Cloud
+all:
+  vars:
+    ansible_ssh_user: ubuntu
+  children:
+    kubernetes:
+      children:
+        control_plane:
+          hosts:
+            192.168.2.128:
+        nodes:
+          hosts:
+            192.168.2.130:
