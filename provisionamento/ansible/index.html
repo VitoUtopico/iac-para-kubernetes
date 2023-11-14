@@ -9,8 +9,10 @@
       
       
       
-        <link rel="prev" href="../../provisionamento/terraform/">
+        <link rel="prev" href="../../documentacao_env/documentacao_env/">
       
+      
+        <link rel="next" href="../terraform/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -18,7 +20,7 @@
     
     
       
-        <title>Gerando par de chaves para acesso ssh - IaC para Kubernetes</title>
+        <title>Ansible - IaC para Kubernetes</title>
       
     
     
@@ -73,7 +75,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#gerando-par-de-chaves-para-acesso-ssh" class="md-skip">
+        <a href="#ansible" class="md-skip">
           Skip to content
         </a>
       
@@ -109,7 +111,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Gerando par de chaves para acesso ssh
+              Ansible
             
           </span>
         </div>
@@ -304,18 +306,20 @@
       
   
   
+    
+  
   
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
@@ -329,7 +333,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             Provisionamento
@@ -340,9 +344,29 @@
                 
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../provisionamento/ansible/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Ansible
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -351,6 +375,61 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#vars" class="md-nav__link">
+    Vars
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inventory" class="md-nav__link">
+    Inventory
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#roles" class="md-nav__link">
+    Roles
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#playbooks" class="md-nav__link">
+    Playbooks
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#teste" class="md-nav__link">
+    Teste
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -362,7 +441,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../provisionamento/terraform/" class="md-nav__link">
+      <a href="../terraform/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -387,20 +466,18 @@
       
   
   
-    
-  
   
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
         
           
           <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
@@ -414,7 +491,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             Seguranca
@@ -425,29 +502,9 @@
                 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Gerando par de chaves para acesso ssh
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../seguranca/chaves_ssh/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -456,40 +513,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#gerando-as-chaves-atraves-do-ssh-keygen" class="md-nav__link">
-    Gerando as chaves através do ssh-keygen
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#referencias" class="md-nav__link">
-    Referências
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -529,15 +552,36 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#gerando-as-chaves-atraves-do-ssh-keygen" class="md-nav__link">
-    Gerando as chaves através do ssh-keygen
+  <a href="#vars" class="md-nav__link">
+    Vars
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#referencias" class="md-nav__link">
-    Referências
+  <a href="#inventory" class="md-nav__link">
+    Inventory
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#roles" class="md-nav__link">
+    Roles
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#playbooks" class="md-nav__link">
+    Playbooks
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#teste" class="md-nav__link">
+    Teste
   </a>
   
 </li>
@@ -557,18 +601,63 @@
                   
 
 
-<h1 id="gerando-par-de-chaves-para-acesso-ssh">Gerando par de chaves para acesso ssh</h1>
-<p>Para facilitar o acesso via SSH à uma máquina remota, é altamente recomendado o uso de um par de chaves criptográficas. Tanto por motivos de segurança, quanto de praticidade, pois elimina a necessidade de inserção de senha a cada acesso à máquina.</p>
-<h2 id="gerando-as-chaves-atraves-do-ssh-keygen">Gerando as chaves através do ssh-keygen</h2>
-<p>Este processo gera duas chaves, uma privada, que deve ser mantida na máquina onde se desenvolve, e uma pública que deve ser alocada nas máquinas remotas.
-No caso de máquinas locais, pode-se enviar a chave pública para cada máquina. Máquinas geradas em nuvem, faremos o processo mais automatizado, a chave será enserida no host durante sua criação via Terraform.</p>
-<div class="language-sh highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>ssh-keygen<span class="w"> </span>-f<span class="w"> </span>rasp_key<span class="w"> </span><span class="c1"># -f especifica o nome do arquivo, que por padrão é id_rsa</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>ssh-copy-id<span class="w"> </span>-i<span class="w"> </span>rasp_key.pub<span class="w"> </span>kluster@192.168.2.120<span class="w"> </span><span class="c1"># deve-se especificar o nome da chave e o host pra onde se quer enviá-la</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>ssh-add<span class="w"> </span>rasp_key<span class="w"> </span><span class="c1"># adicionando a chave rasp_key a um agent ssh para não ser necessário passar o path da chave como argumento para o acesso à máquina remota</span>
-</span></code></pre></div>
-<h2 id="referencias">Referências</h2>
-<p>Chaves ssh:</p>
-<p><a href="https://www.linuxtips.io/course/descomplicando-o-ansible">Descomplicando o Ansible → Day-1 → Setup inicial e nosso primeiro ping!</a></p>
+<h1 id="ansible">Ansible</h1>
+<p>O Ansible será utilizado para automatizar a instalação do Kubernetes, tanto em um cluster local, quanto em um remoto.</p>
+<h2 id="vars">Vars</h2>
+<p>Contem variáveis gerais, que pode ser utilizadas em qualquer módulo do Ansible</p>
+<h2 id="inventory">Inventory</h2>
+<p>Na pasta inventory existe um arquivo onde são listadas as máquinas que serão acessadas.</p>
+<p>São definidos também três grupos de máquinas:</p>
+<ul>
+<li>Kubernetes: incluindo todos os nós</li>
+<li>Control plane: nós que rodarão como control plane do Kubernetes</li>
+<li>Nodes: nós que rodarão como workers do kubernetes</li>
+</ul>
+<h2 id="roles">Roles</h2>
+<p>Contem todas as fazes de instalações e configurações</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">commons</label><label for="__tabbed_1_2">kubernetes</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>É aplicado a todos os nós.</p>
+<ul>
+<li>Faz um apt update e um apt upgrade </li>
+<li>Instala os pacotes necessários</li>
+<li>Liga os módulos de kernel necessários</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<p>É aplicado a todos os nós.</p>
+<p>Aplica as configurações necessárias para a instalação do cluster Kubernetes</p>
+<ul>
+<li>Baixa as chaves e adiciona os repositórios do K8S</li>
+<li>Instala o Kubelet, Kubeadm e Kubectl</li>
+</ul>
+</div>
+</div>
+</div>
+<h2 id="playbooks">Playbooks</h2>
+<p>Associa de forma ordenada as tasks que devem ser executadas com cada grupo de hosts.</p>
+<h2 id="teste">Teste</h2>
+<p>Tentando usar um mesmo projeto para deployar tanto em nuvem quanto em máquinas locais.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Ainda não sei a melhor forma de se fazer isso, seguindo boas práticas. Mas essa foi a forma que consegui fazer. Pretendo, o mais breve, descobrir a forma certa de se fazer isso.</p>
+</div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Inventory</label><label for="__tabbed_2_2">Playbooks</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Pasta inventory dividida em dois arquivos:</p>
+<ul>
+<li>rasp.yaml: referência às máquinas locais (Raspberries Pi)</li>
+<li>cloud.yaml: referência a máquinas que serão geradas na AWS</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<p>Na pasta playbooks existem duas pastas, cloud e rasp, cada uma contendo um arquivo de playbook e um ansible.cfg.</p>
+<p>Cada arquivo ansible.cfg faz referência a um inventory e cada playbook configura o nome de usuário linux de acordo com o conjunto de máquinas a que se refere.</p>
+</div>
+</div>
+</div>
 
 
 
