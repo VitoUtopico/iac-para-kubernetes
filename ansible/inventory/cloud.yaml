@@ -1,13 +1,15 @@
 # Cloud
 all:
   vars:
+    OS: "xUbuntu_22.04"
+    VERSION: "1.28"
     ansible_ssh_user: ubuntu
   children:
     kubernetes:
       children:
         control_plane:
           hosts:
-            3.87.147.208:
+            18.208.223.145:
         # nodes:
         #   hosts:
         #     192.168.2.130:

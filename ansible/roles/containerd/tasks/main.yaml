@@ -1,0 +1,43 @@
+- name: Buscando apt-key do containerd
+  apt_key:    
+    url: https://download.docker.com/linux/ubuntu/gpg
+    state: present
+    keyring: /usr/share/keyrings/docker-archive-keyring.gpg
+
+- name: Buscando valor de lsb_release
+  shell: lsb_release -cs
+  register: lsb_release
+
+- name: Adicionando repositório do containerd
+  apt_repository:
+    repo: "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu {{ lsb_release.stdout }} stable"
+    state: present
+    filename: /etc/apt/sources.list.d/docker.list
+    update_cache: true
+
+- name: Update apt
+  apt: 
+    update_cache: true
+    force_apt_get: true
+    state: "latest"
+    force: true
+
+- name: Instalando pacote containerd
+  apt:
+    state: present
+    update_cache: true
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - containerd.io
+
+- name: Gerando arquivo config.toml do containerd
+  shell: sudo containerd config default | sudo tee /etc/containerd/config.toml
+
+- name: Habilitando SystemdCgroup no arquivo config.toml do containerd
+  shell: sudo sed -i 's/SystemdCgroup = false/SystemdCgroup = true/g' /etc/containerd/config.toml
+
+- name: Reload configs
+  systemd:
+    daemon_reload: true
+    name: containerd

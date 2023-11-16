@@ -5,4 +5,5 @@
   become_user: root
   roles:
   - { role: commons }
+  - { role: kubernetes }
   # - { role: containerd }

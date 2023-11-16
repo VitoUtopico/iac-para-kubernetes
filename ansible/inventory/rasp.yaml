@@ -1,6 +1,8 @@
 # Raspberry
 all:
   vars:
+    OS: "xUbuntu_22.04"
+    VERSION: "1.28"
     ansible_ssh_user: kluster
   children:
     kubernetes:

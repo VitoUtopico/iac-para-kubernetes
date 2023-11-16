@@ -1,5 +1,5 @@
 ---
-- name: Update apt
+- name: Update apt && upgrade apt
   apt: 
     upgrade: "dist"
     update_cache: true

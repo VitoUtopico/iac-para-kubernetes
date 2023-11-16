@@ -1,0 +1,34 @@
+- name: Buscando apt-key do Kubernetes
+  apt_key:    
+    url: https://pkgs.k8s.io/core:/stable:/v{{ VERSION }}/deb/Release.key
+    state: present
+    keyring: /etc/apt/keyrings/kubernetes-apt-keyring.gpg
+    
+- name: Adicionando repositório do Kubernetes
+  apt_repository:
+    repo: "deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v{{ VERSION }}/deb/ /"
+    state: present
+    filename: /etc/apt/sources.list.d/kubernetes.list
+
+- name: Update apt
+  apt: 
+    update_cache: true
+    force_apt_get: true
+    state: "latest"
+    force: true
+
+- name: Instalando pacotes Kubernetes
+  apt:
+    state: present
+    update_cache: true
+    name: "{{ packages }}"
+  vars:
+    packages:
+    - kubelet
+    - kubeadm
+
+- name: Travando versão dos componentes Kubernetes
+  shell: sudo apt-mark hold kubelet kubeadm kubectl
+
+- name: Reset kubeadm
+  shell: sudo kubeadm reset -f    
