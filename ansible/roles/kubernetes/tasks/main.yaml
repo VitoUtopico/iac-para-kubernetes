@@ -31,4 +31,4 @@
   shell: sudo apt-mark hold kubelet kubeadm kubectl
 
 - name: Reset kubeadm
-  shell: sudo kubeadm reset -f    
+  shell: sudo kubeadm reset -f

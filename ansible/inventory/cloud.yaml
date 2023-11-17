@@ -9,7 +9,7 @@ all:
       children:
         control_plane:
           hosts:
-            18.208.223.145:
+            54.242.230.64:
         # nodes:
         #   hosts:
         #     192.168.2.130:

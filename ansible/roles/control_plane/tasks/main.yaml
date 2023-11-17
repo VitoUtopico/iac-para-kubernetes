@@ -1,0 +1,22 @@
+- name: Iniciando cluster Kubernetes
+  shell: kubeadm init --pod-network-cidr=10.32.0.0/12 --cri-socket=unix:///var/run/containerd/containerd.sock
+  args:
+    chdir: $HOME
+    creates: cluster_init.log
+
+- name: Create .kube directory
+  file: 
+    path: /home/ubuntu/.kube
+    state: directory
+    owner: ubuntu
+    group: ubuntu
+    mode: 0775
+
+- name: Copy default cluster configuration
+  copy:
+    src: /etc/kubernetes/admin.conf
+    dest: /home/ubuntu/.kube/config
+    remote_src: yes
+    owner: 1000
+    group: 1000
+    mode: 0660    

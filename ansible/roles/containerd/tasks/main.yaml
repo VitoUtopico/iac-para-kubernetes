@@ -37,7 +37,10 @@
 - name: Habilitando SystemdCgroup no arquivo config.toml do containerd
   shell: sudo sed -i 's/SystemdCgroup = false/SystemdCgroup = true/g' /etc/containerd/config.toml
 
-- name: Reload configs
-  systemd:
-    daemon_reload: true
-    name: containerd
+# - name: Reload configs
+#   systemd:
+#     daemon_reload: true
+#     name: containerd
+
+- name: Reset containerd
+  shell: sudo systemctl restart containerd

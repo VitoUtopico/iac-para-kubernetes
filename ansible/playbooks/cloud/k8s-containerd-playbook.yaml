@@ -1,9 +1,17 @@
 - hosts: kubernetes
   gather_facts: false
-  remote_user: kluster
+  remote_user: ubuntu
   become: yes
   become_user: root
   roles:
   - { role: commons }
   - { role: kubernetes }
   - { role: containerd }
+
+- hosts: control_plane
+  gather_facts: false
+  remote_user: ubuntu
+  become: yes
+  become_user: root
+  roles:
+  - { role: control_plane }
