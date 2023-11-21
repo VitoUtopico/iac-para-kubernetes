@@ -2,7 +2,7 @@ module "instancias_k8s" {
   source = "./modules/instancias_k8s"
 
   control_plane_instance_count = 1
-  nodes_instance_count = 0
+  nodes_instance_count = 1
   kubernetes_control_plane_instance_type = "t2.medium"
   kubernetes_nodes_instance_type = "t2.medium"
   # kubernetes_control_plane_instance_type = "t2.nano"

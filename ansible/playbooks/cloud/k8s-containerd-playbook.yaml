@@ -15,3 +15,18 @@
   become_user: root
   roles:
   - { role: control_plane }
+
+- hosts: nodes
+  gather_facts: false
+  remote_user: ubuntu
+  become: yes
+  become_user: root
+  roles:
+  - { role: config_nodes }
+
+- hosts: control_plane
+  gather_facts: false
+  remote_user: ubuntu
+  become: no
+  roles:
+  - { role: installs_kubectl }
