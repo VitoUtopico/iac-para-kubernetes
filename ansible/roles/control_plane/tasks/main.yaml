@@ -1,5 +1,5 @@
 - name: Iniciando cluster Kubernetes
-  shell: kubeadm init --pod-network-cidr=10.32.0.0/12 --cri-socket=unix:///var/run/containerd/containerd.sock
+  shell: sudo kubeadm init --pod-network-cidr=10.32.0.0/12 --cri-socket=unix:///var/run/containerd/containerd.sock
   args:
     chdir: $HOME
     creates: cluster_init.log
