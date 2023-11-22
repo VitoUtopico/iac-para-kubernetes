@@ -2,6 +2,10 @@
 
 O Ansible será utilizado para automatizar a instalação do Kubernetes, tanto em um cluster local, quanto em um remoto.
 
+## Tree
+
+![Ansible tree](../images/ansible-tree.png)
+
 ## Vars
 
 Contem variáveis gerais, que pode ser utilizadas em qualquer módulo do Ansible

@@ -4,6 +4,10 @@
 
 ## AWS
 
+### Tree
+
+![Terraform AWS tree](../images/terraform-aws-tree.png)
+
 ### Terrafile
 
 No arquivo terrafile.tf temos as declarações dos módulos, como "instancias_k8s", "security" e "network", por exemplo.

@@ -11,6 +11,7 @@ poetry init -n --name=iac-para-kubernetes-doc
 poetry add mkdocs
 poetry add pymdown-extensions
 poetry add mkdocs-material
+poetry add Pygments
 
 ~~~
 
