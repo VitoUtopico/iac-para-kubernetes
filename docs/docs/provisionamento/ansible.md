@@ -37,6 +37,43 @@ Contem todas as fazes de instalações e configurações
 
     * Baixa as chaves e adiciona os repositórios do K8S
     * Instala o Kubelet, Kubeadm e Kubectl
+    * Trava a versão destes componentes
+    * Reseta o kubeadm para evitar erro no momento da criação do cluster
+
+=== "containerd"
+
+    É aplicado a todos os nós.
+
+    Instala e configura componentes necessários para a utilização do containerd como CRI do Kubernetes
+
+    * Baixa a chave e adiciona o repositório do containerd
+    * Instala pacote do containerd
+    * Edita o arquivo config.toml do containerd para que utilize o grupo systemdCgroup
+    * Reseta o serviço do containerd
+
+=== "control_plane"
+
+    É aplicado apenas ao grupo control_plane
+
+    Inicia o cluster kubernetes
+
+    * Utiliza o kubeadm init
+    * Copia o arquivo que origina o .kube/config
+    * Gera o comando para fazer um join de nodes ao cluster e salva em um dummy host
+
+=== "config_nodes"
+
+    É aplicado apenas aos nodes
+
+    Faz o join dos nodes ao cluster utilizando o comando gerado anteriormente pelo control plane
+
+=== "install_kubectl"
+
+    É aplicado a um control plane e não executa como sudo
+
+    Faz instalações necessárias via kubectl
+
+    * Faz kubectl apply do CNI Wavenet
 
 ## Playbooks
 
