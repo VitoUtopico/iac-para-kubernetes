@@ -1,6 +1,6 @@
 # Sobre esta documentação
 
-## Poetry
+##  <img src="../../images/poetry-logo.png" alt="drawing" width="30"/> Poetry
 
 Está sendo utilizado o Poetry para criar uma env do Python apenas com os recursos necessários para o uso do mkdocs.
 Após criar e acessar a pasta "docs".
@@ -15,7 +15,7 @@ poetry add Pygments
 
 ~~~
 
-## Mkdocs
+## <img src="../../images/mkdocs-logo.png" alt="drawing" width="30"/> Mkdocs
 
 O mkdocs foi escolhido para essa documentação por ser de fácil edição, por já ser usado em muitos projetos grandes, portanto está se tornando um padrão e pela possibilidade de utilizá-lo no Github Pages.
 

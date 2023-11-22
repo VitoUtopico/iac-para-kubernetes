@@ -1,4 +1,4 @@
-# Ansible
+# <img src="../../images/ansible-logo.png" alt="drawing" width="40"/> Ansible
 
 O Ansible será utilizado para automatizar a instalação do Kubernetes, tanto em um cluster local, quanto em um remoto.
 

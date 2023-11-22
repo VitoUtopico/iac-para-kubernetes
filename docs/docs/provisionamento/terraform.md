@@ -1,4 +1,4 @@
-# Terraform
+# <img src="../../images/terraform-logo.png" alt="drawing" width="40"/> Terraform
 
 É utilizado para construir o ambiente em nuvem em que o Kubernetes será instalado.
 
