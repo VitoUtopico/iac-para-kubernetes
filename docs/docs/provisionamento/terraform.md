@@ -41,6 +41,10 @@ Identifica o cloud provider utilizado, neste caso AWS, que recebe o argumento "r
 === "security"
 
 
+---
+## Referências
+
+[Terraform Essentials](https://www.linuxtips.io/course/terraform-essentials)
 
 
 

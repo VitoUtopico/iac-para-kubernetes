@@ -99,3 +99,12 @@ Tentando usar um mesmo projeto para deployar tanto em nuvem quanto em máquinas 
     Na pasta playbooks existem duas pastas, cloud e rasp, cada uma contendo um arquivo de playbook e um ansible.cfg.
 
     Cada arquivo ansible.cfg faz referência a um inventory e cada playbook configura o nome de usuário linux de acordo com o conjunto de máquinas a que se refere.
+
+---
+
+## Referências
+
+Ansible:
+
+[Descomplicando o Ansible](https://www.linuxtips.io/course/descomplicando-o-ansible)
+[Kubernetes com CRI-O - Subindo um cluster do zero](https://www.youtube.com/watch?v=3jS25eLz9mY&t=2125s&ab_channel=MatheusFidelis)

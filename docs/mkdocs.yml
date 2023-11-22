@@ -33,3 +33,13 @@ markdown_extensions:
   - pymdownx.snippets
   - pymdownx.superfences
   - admonition
+
+nav:
+  - Introdução: index.md
+  - Env para a doc: documentacao_env/documentacao_env.md
+  - Segurança: seguranca/chaves_ssh.md
+    # - Acesso SSh - Gerando par de chaves: seguranca/chaves_ssh.md
+  - Provisionamento:
+    - Ansible: provisionamento/ansible.md
+    - Terraform: provisionamento/terraform.md
+  
