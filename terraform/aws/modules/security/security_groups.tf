@@ -8,6 +8,15 @@ resource "aws_security_group" "kubernetes" {
     vpc_id      = var.cluster_vpc_id
 
     ingress {
+        from_port   = "6443"
+        to_port     = "6443"
+        protocol    = "tcp"
+        cidr_blocks = ["${chomp(data.http.my_ip.response_body)}/32"]
+        description = "K8s para meu IP atual"
+        self = true
+    }
+
+    ingress {
         from_port   = "22"
         to_port     = "22"
         protocol    = "tcp"
