@@ -1,0 +1,3 @@
+- name: Sobe infra
+  terraform:
+    project_path: "{{ TERRAFORM_PROJECT_PATH }}"

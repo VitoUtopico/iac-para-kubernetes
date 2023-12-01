@@ -1,32 +1,40 @@
-- hosts: kubernetes
+- hosts: localhost
   gather_facts: false
-  remote_user: ubuntu
-  become: yes
-  become_user: root
+  # remote_user: ubuntu
+  # become: yes
+  # become_user: root
   roles:
-  - { role: commons }
-  - { role: kubernetes }
-  - { role: containerd }
+  - { role: terraform }
 
-- hosts: control_plane
-  gather_facts: false
-  remote_user: ubuntu
-  become: yes
-  become_user: root
-  roles:
-  - { role: control_plane }
+# - hosts: kubernetes
+#   gather_facts: false
+#   remote_user: ubuntu
+#   become: yes
+#   become_user: root
+#   roles:
+#   - { role: commons }
+#   - { role: kubernetes }
+#   - { role: containerd }
 
-- hosts: nodes
-  gather_facts: false
-  remote_user: ubuntu
-  become: yes
-  become_user: root
-  roles:
-  - { role: config_nodes }
+# - hosts: control_plane
+#   gather_facts: false
+#   remote_user: ubuntu
+#   become: yes
+#   become_user: root
+#   roles:
+#   - { role: control_plane }
 
-- hosts: control_plane
-  gather_facts: false
-  remote_user: ubuntu
-  become: no
-  roles:
-  - { role: installs_kubectl }
+# - hosts: nodes
+#   gather_facts: false
+#   remote_user: ubuntu
+#   become: yes
+#   become_user: root
+#   roles:
+#   - { role: config_nodes }
+
+# - hosts: control_plane
+#   gather_facts: false
+#   remote_user: ubuntu
+#   become: no
+#   roles:
+#   - { role: installs_kubectl }

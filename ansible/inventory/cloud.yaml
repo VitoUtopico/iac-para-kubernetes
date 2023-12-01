@@ -4,7 +4,9 @@ all:
     OS: "xUbuntu_22.04"
     VERSION: "1.28"
     ansible_ssh_user: ubuntu
+    TERRAFORM_PROJECT_PATH: ../../../terraform/aws/
   children:
+    localhost:
     kubernetes:
       children:
         control_plane:
