@@ -1,3 +1,16 @@
 - name: Sobe infra
   terraform:
     project_path: "{{ TERRAFORM_PROJECT_PATH }}"
+    plan_file: "{{ PLAN_FILE }}"
+    state: planned
+    complex_vars: false
+    # command: 
+  register: terraform_outputs
+
+- debug:  msg="IP privado do control plane {{ terraform_outputs.outputs.control_planes_private_ip.value }}"
+- debug:  msg="IP publico do control plane {{ terraform_outputs.outputs.control_planes_public_ip.value }}"
+
+- debug:  msg="IP privado do node {{ terraform_outputs.outputs.nodes_private_ip.value }}"
+- debug:  msg="IP publico do node {{ terraform_outputs.outputs.nodes_public_ip.value }}"
+
+- debug:  msg="Comando {{ terraform_outputs.command }}"
