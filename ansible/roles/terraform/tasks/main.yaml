@@ -2,15 +2,52 @@
   terraform:
     project_path: "{{ TERRAFORM_PROJECT_PATH }}"
     plan_file: "{{ PLAN_FILE }}"
-    state: planned
-    complex_vars: false
-    # command: 
+    state: present
   register: terraform_outputs
 
-- debug:  msg="IP privado do control plane {{ terraform_outputs.outputs.control_planes_private_ip.value }}"
 - debug:  msg="IP publico do control plane {{ terraform_outputs.outputs.control_planes_public_ip.value }}"
-
-- debug:  msg="IP privado do node {{ terraform_outputs.outputs.nodes_private_ip.value }}"
 - debug:  msg="IP publico do node {{ terraform_outputs.outputs.nodes_public_ip.value }}"
 
 - debug:  msg="Comando {{ terraform_outputs.command }}"
+
+- name: Inserindo template de inventário cloud.yaml
+  template:
+    src: cloud.yaml.j2
+    dest: ../../inventory/cloud.yaml
+    mode: 0644
+
+# - name: testa sed
+#   shell: sed '/kubernetes/,$' ../../../terraform/aws/teste
+#   register: saida
+
+# - debug: msg="Comando sed:\n\n{{ saida }}"
+
+- name: Inserindo ips do control plane
+  lineinfile:
+    path: ../../inventory/cloud.yaml
+    regexp: '# control_plane_ips'
+    line: "{{ '# control_plane_ips' | indent(width=12, first=True) }}\n{{ item | indent(width=12, first=True) }}:"
+  loop: "{{ terraform_outputs.outputs.control_planes_public_ip.value }}"
+
+- name: Inserindo ips dos nodes
+  lineinfile:
+    path: ../../inventory/cloud.yaml
+    regexp: '# node_ips'
+    line: "{{ '# node_ips' | indent(width=12, first=True) }}\n{{ item | indent(width=12, first=True) }}:"
+  loop: "{{ terraform_outputs.outputs.nodes_public_ip.value }}"
+
+- meta: refresh_inventory
+
+- name: Aguardando conexão ssh com hosts control_plane
+  local_action: wait_for
+    host={{ item }}
+    port=22
+    state=started
+  loop: "{{ terraform_outputs.outputs.control_planes_public_ip.value }}"
+
+- name: Aguardando conexão ssh com hosts nodes
+  local_action: wait_for
+    host={{ item }}
+    port=22
+    state=started
+  loop: "{{ terraform_outputs.outputs.nodes_public_ip.value }}"

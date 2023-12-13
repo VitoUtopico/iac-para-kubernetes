@@ -20,6 +20,8 @@ São definidos também três grupos de máquinas:
 * Control plane: nós que rodarão como control plane do Kubernetes
 * Nodes: nós que rodarão como workers do kubernetes
 
+### DOCUMENTAR SOBRE INVENTÁRIO DINÂMICO
+
 
 ## Roles
 
@@ -112,3 +114,7 @@ Ansible:
 
 [Descomplicando o Ansible](https://www.linuxtips.io/course/descomplicando-o-ansible)
 [Kubernetes com CRI-O - Subindo um cluster do zero](https://www.youtube.com/watch?v=3jS25eLz9mY&t=2125s&ab_channel=MatheusFidelis)
+
+[30 Exemplos do comando sed](https://terminalroot.com.br/2015/07/30-exemplos-do-comando-sed-com-regex.html)
+
+[Recarregando o inventário do Ansible durante a execução](https://dev.to/stefanomartins/recarregando-o-inventario-do-ansible-durante-a-execucao-5ghm)

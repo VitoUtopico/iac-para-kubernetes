@@ -1,0 +1,2 @@
+TERRAFORM_PROJECT_PATH: ../../../terraform/aws/
+PLAN_FILE: plans
