@@ -1,5 +1,10 @@
 - name: Iniciando cluster Kubernetes
-  shell: kubeadm init --pod-network-cidr=10.32.0.0/12 --cri-socket=unix:///var/run/containerd/containerd.sock --apiserver-cert-extra-sans=34.227.227.142 --apiserver-cert-extra-sans=12.0.17.221 --apiserver-cert-extra-sans=localhost
+  shell: kubeadm init --pod-network-cidr=10.32.0.0/12 
+                      --cri-socket=unix:///var/run/containerd/containerd.sock
+                      --apiserver-cert-extra-sans=localhost
+                      --apiserver-cert-extra-sans={{ hostvars.IPS_CONTROL_PLANE.IP_INTERNO[0] }}
+                      --apiserver-cert-extra-sans={{ hostvars.IPS_CONTROL_PLANE.IP_EXTERNO[0] }}
+                      
   args:
     chdir: $HOME
     creates: cluster_init.log
@@ -20,6 +25,12 @@
     owner: 1000
     group: 1000
     mode: 0660
+
+- name: Importa .kube/config para máquina local
+  fetch:
+    src: /home/ubuntu/.kube/config
+    dest: ./config
+
 
 - name: Copiando join token
   shell: kubeadm token create --print-join-command
