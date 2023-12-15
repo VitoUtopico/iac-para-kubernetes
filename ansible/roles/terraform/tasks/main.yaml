@@ -1,3 +1,10 @@
+- name: Planeja infra
+  terraform:
+    project_path: "{{ TERRAFORM_PROJECT_PATH }}"
+    plan_file: "{{ PLAN_FILE }}"
+    state: planned
+  check_mode: true
+
 - name: Sobe infra
   terraform:
     project_path: "{{ TERRAFORM_PROJECT_PATH }}"
@@ -22,19 +29,27 @@
 
 # - debug: msg="Comando sed:\n\n{{ saida }}"
 
+- name: Adicionando os IPs do Control Plane como fact
+  set_fact: 
+    IP_INTERNO_CONTROL_PLANE="{{ terraform_outputs.outputs.control_planes_private_ip.value }}"
+    IP_EXTERNO_CONTROL_PLANE="{{ terraform_outputs.outputs.control_planes_public_ip.value }}"
+    
+    IP_INTERNO_NODES="{{ terraform_outputs.outputs.nodes_private_ip.value }}"
+    IP_EXTERNO_NODES="{{ terraform_outputs.outputs.nodes_public_ip.value }}"
+
 - name: Inserindo ips do control plane
   lineinfile:
     path: ../../inventory/cloud.yaml
     regexp: '# control_plane_ips'
     line: "{{ '# control_plane_ips' | indent(width=12, first=True) }}\n{{ item | indent(width=12, first=True) }}:"
-  loop: "{{ terraform_outputs.outputs.control_planes_public_ip.value }}"
+  loop: "{{ IP_EXTERNO_CONTROL_PLANE }}"
 
 - name: Inserindo ips dos nodes
   lineinfile:
     path: ../../inventory/cloud.yaml
     regexp: '# node_ips'
     line: "{{ '# node_ips' | indent(width=12, first=True) }}\n{{ item | indent(width=12, first=True) }}:"
-  loop: "{{ terraform_outputs.outputs.nodes_public_ip.value }}"
+  loop: "{{ IP_EXTERNO_NODES }}"
 
 - meta: refresh_inventory
 
@@ -43,11 +58,21 @@
     host={{ item }}
     port=22
     state=started
-  loop: "{{ terraform_outputs.outputs.control_planes_public_ip.value }}"
+  loop: "{{ IP_EXTERNO_CONTROL_PLANE }}"
 
 - name: Aguardando conexão ssh com hosts nodes
   local_action: wait_for
     host={{ item }}
     port=22
     state=started
-  loop: "{{ terraform_outputs.outputs.nodes_public_ip.value }}"
+  loop: "{{ IP_EXTERNO_NODES }}"
+
+
+- name: Criando um dummy host com os IPs interno e externo do Control Plane
+  # Esses IPs serão utilizados no comando kubeadm init para permitir acesso
+  # externo ao cluster, ao copiar o kubeconfig para a máquina
+  # de desenvolvimento.
+  add_host:
+    name: "IPS_CONTROL_PLANE"
+    IP_INTERNO: "{{  IP_INTERNO_CONTROL_PLANE  }}"
+    IP_EXTERNO: "{{  IP_EXTERNO_CONTROL_PLANE  }}"
