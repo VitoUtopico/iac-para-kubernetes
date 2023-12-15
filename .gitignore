@@ -168,3 +168,4 @@ cython_debug/
 ssh_keys
 docs/site
 images
+ansible/playbooks/cloud/config/
